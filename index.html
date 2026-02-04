@@ -12,10 +12,11 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Fira Code', monospace;
+            background: #0a0a0a;
             min-height: 100vh;
-            color: #333;
+            color: #00ff41;
+            overflow-x: hidden;
         }
         
         .container {
@@ -27,39 +28,54 @@
         header {
             text-align: center;
             padding: 4rem 0;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(20px);
             border-radius: 12px;
             margin-bottom: 3rem;
+            border: 1px solid rgba(0, 255, 65, 0.2);
         }
         
         .avatar {
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            background: linear-gradient(45deg, #00ff41, #00d4ff);
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 1.5rem;
             font-size: 2rem;
-            color: white;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            color: #0a0a0a;
+            box-shadow: 0 10px 30px rgba(0, 255, 65, 0.5);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
         
         h1 {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
-            background: linear-gradient(45deg, #fff, #f0f0f0);
+            background: linear-gradient(45deg, #00ff41, #00d4ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(0, 255, 65, 0.5), 0 0 30px rgba(0, 255, 65, 0.3); }
+            to { text-shadow: 0 0 30px rgba(0, 255, 65, 0.7), 0 0 40px rgba(0, 255, 65, 0.4); }
         }
         
         .tagline {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(0, 255, 65, 0.8);
             font-size: 1.2rem;
             margin-bottom: 2rem;
+            font-family: 'Fira Code', monospace;
         }
         
         .links {
@@ -71,19 +87,37 @@
         
         .link-btn {
             padding: 0.75rem 1.5rem;
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: rgba(0, 255, 65, 0.2);
+            border: 2px solid rgba(0, 255, 65, 0.4);
             border-radius: 25px;
-            color: white;
+            color: #00ff41;
             text-decoration: none;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
+            font-family: 'Fira Code', monospace;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .link-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .link-btn:hover::before {
+            left: 100%;
         }
         
         .link-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(0, 255, 65, 0.3);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 255, 65, 0.5);
         }
         
         .content {
@@ -94,17 +128,27 @@
         }
         
         .card {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(10, 10, 10, 0.9);
             padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border-color: rgba(0, 255, 65, 0.4);
         }
         
         .card h2 {
-            color: #667eea;
+            color: #00ff41;
             margin-bottom: 1rem;
             font-size: 1.5rem;
+            font-family: 'Fira Code', monospace;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
         }
         
         .card ul {
@@ -114,7 +158,8 @@
         
         .card li {
             padding: 0.5rem 0;
-            border-bottom: 1px solid #f0f0f0;
+            border-bottom: 1px solid rgba(0, 255, 65, 0.2);
+            font-family: 'Fira Code', monospace;
         }
         
         .card li:last-child {
@@ -122,8 +167,8 @@
         }
         
         .card li::before {
-            content: "✓";
-            color: #4ecdc4;
+            content: "▸";
+            color: #00ff41;
             font-weight: bold;
             margin-right: 0.5rem;
         }
@@ -131,10 +176,34 @@
         footer {
             text-align: center;
             padding: 2rem 0;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(20px);
             border-radius: 12px;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(0, 255, 65, 0.8);
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            font-family: 'Fira Code', monospace;
+        }
+        
+        .cursor {
+            width: 10px;
+            height: 10px;
+            background: #00ff41;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+        }
+        
+        .cursor-follower {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #00ff41;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.3s ease;
         }
         
         @media (max-width: 768px) {
@@ -153,6 +222,9 @@
     </style>
 </head>
 <body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+    
     <div class="container">
         <header>
             <div class="avatar">🤖</div>
@@ -202,5 +274,77 @@
             <p>Created by [@CursedDK](https://github.com/CursedDK) | © 2026 MadiDevDK</p>
         </footer>
     </div>
-</body>
+    
+    <script>
+        const cursor = document.getElementById('cursor');
+        const cursorFollower = document.getElementById('cursor-follower');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                cursorFollower.style.left = e.clientX - 10 + 'px';
+                cursorFollower.style.top = e.clientY - 10 + 'px';
+            }, 100);
+        });
+        
+        document.addEventListener('mousedown', () => {
+            cursor.style.transform = 'scale(0.8)';
+            cursorFollower.style.transform = 'scale(0.8)';
+        });
+        
+        document.addEventListener('mouseup', () => {
+            cursor.style.transform = 'scale(1)';
+            cursorFollower.style.transform = 'scale(1)';
+        });
+        
+        const links = document.querySelectorAll('.link-btn');
+        links.forEach(link => {
+            link.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(2)';
+                cursor.style.background = '#00d4ff';
+            });
+            
+            link.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+                cursor.style.background = '#00ff41';
+            });
+        });
+        
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(1.5)';
+                cursor.style.background = '#00d4ff';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+                cursor.style.background = '#00ff41';
+            });
+        });
+        
+        const animateText = (element, animation) => {
+            element.style.animation = `${animation} 1s ease-in-out`;
+            setTimeout(() => {
+                element.style.animation = '';
+            }, 1000);
+        };
+        
+        const headings = document.querySelectorAll('h1, h2');
+        headings.forEach((heading, index) => {
+            heading.style.opacity = '0';
+            heading.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                heading.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                heading.style.opacity = '1';
+                heading.style.transform = 'translateY(0)';
+                
+                animateText(heading, 'glow 2s ease-in-out infinite alternate');
+            }, index * 200);
+        });
+    </script>
+<body>
 </html>
