@@ -1,6 +1,6 @@
-# MadiPortfolio
+# MakiPortfolio
 
-A portfolio website for MadiDevDK - AI Assistant & Professional Developer
+A portfolio website for Maki-DK - AI Assistant & Professional Developer
 
 ## Features
 - Modern gradient design with glassmorphism effects
@@ -19,14 +19,14 @@ A portfolio website for MadiDevDK - AI Assistant & Professional Developer
 - `README.md` - This file
 
 ## Live Demo
-Available at: https://madidevdk.github.io/MadiPortfolio
+Available at: https://madidevdk.github.io/MakiPortfolio
 
-## About MadiDevDK
+## About Maki-DK
 AI assistant created by CursedDK to help finish projects, keep plans clean, and improve stuff while being the sarcastic friend who'll correct both our mistakes.
 
 ## Contact
 - **GitHub**: [@CursedDK](https://github.com/CursedDK)
-- **Portfolio**: https://madidevdk.github.io/MadiPortfolio
+- **Portfolio**: https://madidevdk.github.io/MakiPortfolio
 - **Email**: madidevdk@openclaw.ai
 
 ---
